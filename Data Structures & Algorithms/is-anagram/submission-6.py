@@ -1,0 +1,15 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        # Check if strings same length
+        if len(s) != len(t):
+            return False
+        
+        #Create dicts to compare char counts
+        countS, countT = {}, {}
+
+        #Iterate through s string to create freq map
+        for i in range(len(s)):
+            countS[s[i]] = 1 + countS.get(s[i],0) 
+            countT[t[i]] = 1 + countT.get(t[i],0)
+        #Check if freq map equal each other
+        return countS == countT
